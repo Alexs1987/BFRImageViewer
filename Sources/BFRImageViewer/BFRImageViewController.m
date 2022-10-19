@@ -8,7 +8,6 @@
 
 #import "BFRImageViewController.h"
 #import "BFRImageContainerViewController.h"
-#import "BFRImageViewerLocalizations.h"
 #import "BFRImageTransitionAnimator.h"
 #import "BFRImageViewerConstants.h"
 
@@ -199,10 +198,12 @@
 
 - (void)addChromeToUI {
     if (self.enableDoneButton) {
-        UIImage *crossImage = [UIImage imageNamed:@"cross" inBundle:SWIFTPM_MODULE_BUNDLE compatibleWithTraitCollection:nil];
+        UIImageSymbolConfiguration *config = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightBold];
+        UIImage *crossImage = [UIImage systemImageNamed:@"xmark" withConfiguration:config];
 
         self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.doneButton setAccessibilityLabel:BFRImageViewerLocalizedStrings(@"imageViewController.closeButton.text", @"Close")];
+        self.doneButton.tintColor = [UIColor whiteColor];
+        [self.doneButton setAccessibilityLabel:@"Close"];
         [self.doneButton setImage:crossImage forState:UIControlStateNormal];
         [self.doneButton addTarget:self action:@selector(handleDoneAction) forControlEvents:UIControlEventTouchUpInside];
         

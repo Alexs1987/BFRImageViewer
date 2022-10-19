@@ -12,13 +12,9 @@
 #import "BFRImageViewerConstants.h"
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
-#if SWIFT_PACKAGE
-@import PINRemoteImage;
-#else
 #import <PINRemoteImage/PINAnimatedImageView.h>
 #import <PINRemoteImage/PINRemoteImage.h>
 #import <PINRemoteImage/PINImageView+PINRemoteImage.h>
-#endif
 
 
 @interface BFRImageContainerViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
